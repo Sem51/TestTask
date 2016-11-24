@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 enum Type: String {
     case Gif = "gif"
@@ -21,7 +22,7 @@ class GiphyAppModel {
     var imageOne: Image!
     var imageTwo: Image!
     var imageReserv: Image!
-    
+   
 }
 
 class Image {
@@ -35,10 +36,16 @@ class Image {
         self.originalImageUrl = originalImageUrl
     }
     
-    init(json: NSDictionary) {
+    init?(json: NSDictionary) {
         let dataKey = json["data"] as! NSDictionary
         type = Type(rawValue: dataKey["type"] as! String)!
         id = dataKey["id"] as! String
         originalImageUrl = dataKey["image_original_url"] as! String
+    }
+    
+    init(image: Image) {
+        self.type = image.type
+        self.id = image.id
+        self.originalImageUrl = image.originalImageUrl
     }
 }

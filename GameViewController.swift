@@ -10,20 +10,36 @@ import UIKit
 import AlamofireImage
 import SwiftGif
 
-class GameViewController: UIViewController, giphyDelegate {
+class GameViewController: UIViewController {
     
     @IBOutlet weak var leftImage: UIImageView!
     @IBOutlet weak var rightImage: UIImageView!
-    var model = GiphyAppModel()
+    
+    let tapRec = UITapGestureRecognizer()
+    
+    @IBOutlet weak var scoreButton: UIButton!
+    
+    var model: GiphyAppModel!
     var request = Request()
+    
+    var scores: [Score] = []
+    
+    var image1: UIImage!
+    var image2: UIImage!
+    var image3: UIImage!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.request.delegate = self
+        let tapGestureRecognizer = UITapGestureRecognizer(target:self, action:#selector(imageTapped(img:)))
+        leftImage.isUserInteractionEnabled = true
+        leftImage.addGestureRecognizer(tapGestureRecognizer)
         
-        request.getRandomImage()
+        //self.request.delegate = self
         
+        leftImage.image = image1
+        rightImage.image = image2
+        scoreButton.titleLabel?.text = "\(model.leftScore) - \(model.rigtScore)"
     }
     
     override func didReceiveMemoryWarning() {
@@ -31,21 +47,53 @@ class GameViewController: UIViewController, giphyDelegate {
         // Dispose of any resources that can be recreated.
     }
     
-    func failure() {
-        // No connection internet
-        let networkController = UIAlertController(title: "Error", message: "No connection!", preferredStyle: UIAlertControllerStyle.alert)
-        let okButton = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil)
-        networkController.addAction(okButton)
-        self.present(networkController, animated: true, completion: nil)
+    func imageTapped(img: AnyObject)
+    {
+        model.leftScore = model.leftScore + 1
+        scoreButton.titleLabel?.text = "\(model.leftScore) - \(model.rigtScore)"
+        
+        saveToCoreData()
+    }
+    
+    func saveToCoreData() {
+        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        //context.delete(self.scores[0])
+        //(UIApplication.shared.delegate as! AppDelegate).saveContext()
+        let scoreCoreData = Score(context: context)
+        scoreCoreData.leftPictures = model.leftScore
+        scoreCoreData.rightPictures = model.rigtScore
+        
+        
+        
+        do {
+            try context.save()
+        } catch {
+            print(error)
+            return
+        }
+    }
+    
+//    @IBAction func tapOnPicture(_ sender: UIButton) {
+//        if sender == leftButton {
+//            model.leftScore = model.leftScore + 1
+//            
+//        } else if sender == rightButton {
+//            model.rigtScore = model.rigtScore + 1
+//        }
+//        
+//        scoreButton.titleLabel?.text = "\(model.leftScore) - \(model.rigtScore)"
+//        
+//    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "Score" {
+            let destinationViewController = segue.destination as! ScoreViewController
+            destinationViewController.leftScore = model.leftScore
+            destinationViewController.rightScore = model.rigtScore
+        }
     }
     
     //MARK: giphyDelegate
     
-    func updatePictureInfo(picture: Image) {
-        
-        
-        let url = URL(string: picture.originalImageUrl)
-        leftImage.af_setImage(withURL: url!)
-        
-    }
+
 }
