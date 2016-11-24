@@ -1,0 +1,4 @@
+github "Alamofire/Alamofire" ~> 4.0
+github "SwiftyJSON/SwiftyJSON"
+github "Alamofire/AlamofireImage" ~> 3.1
+github "bahlo/SwiftGif" ~> 1.6.1

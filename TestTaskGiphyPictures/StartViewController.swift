@@ -1,18 +1,19 @@
 //
-//  ViewController.swift
+//  StartViewController.swift
 //  TestTaskGiphyPictures
 //
-//  Created by Семен Осипов on 23.11.16.
+//  Created by Семен Осипов on 24.11.16.
 //  Copyright © 2016 Семен Осипов. All rights reserved.
 //
 
 import UIKit
 
-class ViewController: UIViewController {
+class StartViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -20,6 +21,4 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-
 }
-
