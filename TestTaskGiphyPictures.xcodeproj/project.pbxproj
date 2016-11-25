@@ -72,7 +72,6 @@
 			children = (
 				A20F6A5D1DE62EA70097EB84 /* ViewControllers */,
 				A20F6A5C1DE62E9B0097EB84 /* StoryBoards */,
-				A20F6A5B1DE62E840097EB84 /* CoreData */,
 				A20F6A6E1DE6ABFF0097EB84 /* Model */,
 				A20F6A461DE62E030097EB84 /* AppDelegate.swift */,
 				A2CD77611DE6D6FA00C9F1FE /* SupportingFiles */,
@@ -130,6 +129,7 @@
 				A20F6A5E1DE62FE70097EB84 /* RequestService.swift */,
 				A2CD775F1DE6D5D100C9F1FE /* iOSDevCenters+GIF.swift */,
 				A20F6A551DE62E030097EB84 /* Info.plist */,
+				A20F6A5B1DE62E840097EB84 /* CoreData */,
 			);
 			name = SupportingFiles;
 			sourceTree = "<group>";

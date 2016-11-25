@@ -10,14 +10,12 @@ import UIKit
 import AlamofireImage
 
 class GameViewController: UIViewController {
-    
+
     @IBOutlet weak var leftImage: UIImageView!
     @IBOutlet weak var rightImage: UIImageView!
     
     @IBOutlet weak var scoreButton: UIButton!
     @IBOutlet weak var scoreLabel: UILabel!
-    
-    let tapRec = UITapGestureRecognizer()
     
     var model: GiphyAppModel!
     var request = Request()
@@ -29,15 +27,6 @@ class GameViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let tapGestureRecognizer1 = UITapGestureRecognizer(target:self, action:#selector(imageTapped(img:)))
-        let tapGestureRecognizer2 = UITapGestureRecognizer(target:self, action:#selector(imageTapped(img:)))
-        
-        leftImage.isUserInteractionEnabled = true
-        leftImage.addGestureRecognizer(tapGestureRecognizer1)
-        
-        rightImage.isUserInteractionEnabled = true
-        rightImage.addGestureRecognizer(tapGestureRecognizer2)
-        
         leftImage.image = image1
         rightImage.image = image2
         
@@ -48,13 +37,15 @@ class GameViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+  
+ 
     
-    func imageTapped(img: AnyObject)
-    {
-        model.leftScore = model.leftScore + 1
-        
-        scoreLabel.text = "\(model.leftScore) - \(model.rigtScore)"
-    }
+//    func imageTapped(img: AnyObject)
+//    {
+//        model.leftScore = model.leftScore + 1
+//        scoreLabel.text = "\(model.leftScore) - \(model.rigtScore)"
+//    }
+//
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -63,6 +54,27 @@ class GameViewController: UIViewController {
             destinationViewController.leftScore = model.leftScore
             destinationViewController.rightScore = model.rigtScore
         }
+    }
+    
+    @IBAction func pressLeftPicture(_ sender: Any) {
+        model.leftScore = model.leftScore + 1
+        model.imageOne = model.imageReserv
+        image1 = image3
+        leftImage.image = image1
+        pictureRefresh()
+    }
+    @IBAction func pressRightPicture(_ sender: Any) {
+        model.rigtScore = model.rigtScore + 1
+        model.imageTwo = model.imageReserv
+        image2 = image3
+        rightImage.image = image2
+        pictureRefresh()
+    }
+    
+    func pictureRefresh() {
+        scoreLabel.text = "\(model.leftScore) - \(model.rigtScore)"
+        model.imageReserv = request.getRandomImage()
+        image3 = UIImage.gifImageWithURL(model.imageReserv.originalImageUrl)
     }
     
     @IBAction func cancelButton(_ sender: Any) {
