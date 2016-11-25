@@ -29,11 +29,24 @@ class StartViewController: UIViewController {
         model.imageTwo = request.getRandomImage()
         model.imageReserv = request.getRandomImage()
         
-        loadImages()
+//        DispatchQueue.global(attributes: [.qosDefault]).async {
+//            // Background thread
+//            DispatchQueue.main.async(execute: {
+//                // UI Updates
+//            })
+//        }
+        
+        let queue = DispatchQueue(label: "loadImages") 
+        let backgroundQueue = DispatchQueue(label: "loadImages",
+                                            qos: .background,
+                                            target: nil)
+        backgroundQueue.async {
+            self.loadImages()
+        }
     }
 
     func loadImages() {
-        //add GCD!
+    
         image1 = UIImage.gifImageWithURL(model.imageOne.originalImageUrl)
         image2 = UIImage.gifImageWithURL(model.imageTwo.originalImageUrl)
         image3 = UIImage.gifImageWithURL(model.imageReserv.originalImageUrl)

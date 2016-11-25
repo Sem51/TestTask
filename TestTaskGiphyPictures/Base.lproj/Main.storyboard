@@ -79,15 +79,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" image="SamplePicture" translatesAutoresizingMaskIntoConstraints="NO" id="aEc-Mi-Yae" userLabel="LeftPicture">
-                                <rect key="frame" x="0.0" y="133" width="160" height="435"/>
+                            <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" image="SamplePicture" translatesAutoresizingMaskIntoConstraints="NO" id="aEc-Mi-Yae" userLabel="LeftPicture">
+                                <rect key="frame" x="0.0" y="133" width="157.5" height="435"/>
                                 <gestureRecognizers/>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="1d1-1Z-bm2" appends="YES" id="rav-Lh-Tzg"/>
                                 </connections>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SamplePicture" translatesAutoresizingMaskIntoConstraints="NO" id="dNn-If-FmG" userLabel="RightPicture">
-                                <rect key="frame" x="160" y="133" width="160" height="435"/>
+                            <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SamplePicture" translatesAutoresizingMaskIntoConstraints="NO" id="dNn-If-FmG" userLabel="RightPicture">
+                                <rect key="frame" x="162.5" y="133" width="157.5" height="435"/>
                                 <gestureRecognizers/>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="4DL-Qn-Hf3" appends="YES" id="8DN-3q-XC6"/>
@@ -118,7 +118,6 @@
                                     <constraint firstAttribute="width" constant="25" id="xYm-3d-og0"/>
                                 </constraints>
                                 <connections>
-                                    <outletCollection property="gestureRecognizers" destination="4DL-Qn-Hf3" appends="YES" id="nB2-WH-KrW"/>
                                     <segue destination="0Ga-Ci-Qs8" kind="presentation" identifier="Score" id="RoO-Oq-WN4"/>
                                 </connections>
                             </button>
@@ -152,7 +151,7 @@
                             <constraint firstAttribute="trailing" secondItem="ysd-3I-yrh" secondAttribute="trailing" id="Xod-nA-h62"/>
                             <constraint firstItem="Joh-TB-0fn" firstAttribute="centerX" secondItem="jMq-Cf-LRC" secondAttribute="centerX" id="cdG-H1-z2A"/>
                             <constraint firstItem="aEc-Mi-Yae" firstAttribute="leading" secondItem="jMq-Cf-LRC" secondAttribute="leading" id="ci0-PQ-SIe"/>
-                            <constraint firstItem="dNn-If-FmG" firstAttribute="leading" secondItem="aEc-Mi-Yae" secondAttribute="trailing" id="eGE-yY-jUW"/>
+                            <constraint firstItem="dNn-If-FmG" firstAttribute="leading" secondItem="aEc-Mi-Yae" secondAttribute="trailing" constant="5" id="eGE-yY-jUW"/>
                             <constraint firstItem="oJz-oS-A3b" firstAttribute="top" secondItem="ysd-3I-yrh" secondAttribute="bottom" constant="25" id="iHH-Jb-4qX">
                                 <variation key="heightClass=compact-widthClass=compact" constant="13"/>
                             </constraint>

@@ -27,8 +27,13 @@ class GameViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        leftImage.image = image1
-        rightImage.image = image2
+        DispatchQueue.main.async {
+            self.leftImage.image = self.image1
+            self.rightImage.image = self.image2
+        }
+        
+        //leftImage.image = image1
+        //rightImage.image = image2
         
         scoreLabel.text = "\(model.leftScore) - \(model.rigtScore)"
     }
@@ -60,7 +65,10 @@ class GameViewController: UIViewController {
         model.leftScore = model.leftScore + 1
         model.imageOne = model.imageReserv
         image1 = image3
-        leftImage.image = image1
+        DispatchQueue.main.async {
+            self.leftImage.image = self.image1
+        }
+        
         pictureRefresh()
     }
     @IBAction func pressRightPicture(_ sender: Any) {

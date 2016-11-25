@@ -33,6 +33,7 @@ class Request {
                 print(data)
                 let json = try! JSONSerialization.jsonObject(with: data, options: []) as? NSDictionary
                 if let jsonDictionary = json {
+                    print(jsonDictionary)
                     self.image = Image(json: jsonDictionary)
                 } else {
                     print("Load Failed")
