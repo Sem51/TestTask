@@ -14,14 +14,13 @@ class GameViewController: UIViewController {
     @IBOutlet weak var leftImage: UIImageView!
     @IBOutlet weak var rightImage: UIImageView!
     
-    let tapRec = UITapGestureRecognizer()
-    
     @IBOutlet weak var scoreButton: UIButton!
+    @IBOutlet weak var scoreLabel: UILabel!
+    
+    let tapRec = UITapGestureRecognizer()
     
     var model: GiphyAppModel!
     var request = Request()
-    
-    var scores: [Score] = []
     
     var image1: UIImage!
     var image2: UIImage!
@@ -30,15 +29,19 @@ class GameViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let tapGestureRecognizer = UITapGestureRecognizer(target:self, action:#selector(imageTapped(img:)))
-        leftImage.isUserInteractionEnabled = true
-        leftImage.addGestureRecognizer(tapGestureRecognizer)
+        let tapGestureRecognizer1 = UITapGestureRecognizer(target:self, action:#selector(imageTapped(img:)))
+        let tapGestureRecognizer2 = UITapGestureRecognizer(target:self, action:#selector(imageTapped(img:)))
         
-        //self.request.delegate = self
+        leftImage.isUserInteractionEnabled = true
+        leftImage.addGestureRecognizer(tapGestureRecognizer1)
+        
+        rightImage.isUserInteractionEnabled = true
+        rightImage.addGestureRecognizer(tapGestureRecognizer2)
         
         leftImage.image = image1
         rightImage.image = image2
-        scoreButton.titleLabel?.text = "\(model.leftScore) - \(model.rigtScore)"
+        
+        scoreLabel.text = "\(model.leftScore) - \(model.rigtScore)"
     }
     
     override func didReceiveMemoryWarning() {
@@ -49,27 +52,8 @@ class GameViewController: UIViewController {
     func imageTapped(img: AnyObject)
     {
         model.leftScore = model.leftScore + 1
-        scoreButton.titleLabel?.text = "\(model.leftScore) - \(model.rigtScore)"
         
-        //saveToCoreData()
-    }
-    
-    func saveToCoreData() {
-        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-        //context.delete(self.scores[0])
-        //(UIApplication.shared.delegate as! AppDelegate).saveContext()
-        let scoreCoreData = Score(context: context)
-        scoreCoreData.leftPictures = model.leftScore
-        scoreCoreData.rightPictures = model.rigtScore
-        
-        
-        
-        do {
-            try context.save()
-        } catch {
-            print(error)
-            return
-        }
+        scoreLabel.text = "\(model.leftScore) - \(model.rigtScore)"
     }
     
     

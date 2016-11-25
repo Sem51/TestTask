@@ -8,8 +8,6 @@
 
 import UIKit
 import CoreData
-//import AlamofireImage
-//import SwiftGif
 
 class StartViewController: UIViewController {
     
@@ -23,24 +21,9 @@ class StartViewController: UIViewController {
     var image2: UIImage!
     var image3: UIImage!
     
-    var scores: [Score] = []
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
-        //Load from CoreData
-//        let context = (UIApplication.shared .delegate as! AppDelegate).persistentContainer.viewContext
-//        do {
-//            scores = try context.fetch(Score.fetchRequest())
-//            if scores.count > 0 {
-//            model.leftScore = scores[0].leftPictures
-//            model.rigtScore = scores[0].rightPictures
-//            }
-//        } catch {
-//            print("Fetching faild")
-//        }
-        
+    
         //load 3 random image
         model.imageOne = request.getRandomImage()
         model.imageTwo = request.getRandomImage()

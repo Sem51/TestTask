@@ -17,7 +17,7 @@
 		A20F6A691DE6A3E20097EB84 /* GiphyAppModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20F6A681DE6A3E20097EB84 /* GiphyAppModel.swift */; };
 		A20F6A6B1DE6AB1C0097EB84 /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20F6A6A1DE6AB1C0097EB84 /* StartViewController.swift */; };
 		A20F6A6D1DE6AB370097EB84 /* ScoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20F6A6C1DE6AB370097EB84 /* ScoreViewController.swift */; };
-		A20F6A711DE6CBB50097EB84 /* AlamofireImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A20F6A701DE6CBB50097EB84 /* AlamofireImage.framework */; };
+		A2232C2A1DE80B5800516510 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A20F6A631DE638800097EB84 /* Alamofire.framework */; };
 		A2CD77601DE6D5D100C9F1FE /* iOSDevCenters+GIF.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2CD775F1DE6D5D100C9F1FE /* iOSDevCenters+GIF.swift */; };
 /* End PBXBuildFile section */
 
@@ -35,7 +35,6 @@
 		A20F6A681DE6A3E20097EB84 /* GiphyAppModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GiphyAppModel.swift; sourceTree = "<group>"; };
 		A20F6A6A1DE6AB1C0097EB84 /* StartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
 		A20F6A6C1DE6AB370097EB84 /* ScoreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ScoreViewController.swift; path = ../ScoreViewController.swift; sourceTree = "<group>"; };
-		A20F6A701DE6CBB50097EB84 /* AlamofireImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AlamofireImage.framework; path = Carthage/Build/iOS/AlamofireImage.framework; sourceTree = "<group>"; };
 		A2CD775F1DE6D5D100C9F1FE /* iOSDevCenters+GIF.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "iOSDevCenters+GIF.swift"; path = "../../../../Desktop/iOSDevCenters+GIF.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -44,7 +43,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A20F6A711DE6CBB50097EB84 /* AlamofireImage.framework in Frameworks */,
+				A2232C2A1DE80B5800516510 /* Alamofire.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -112,7 +111,6 @@
 		A20F6A621DE6387F0097EB84 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				A20F6A701DE6CBB50097EB84 /* AlamofireImage.framework */,
 				A20F6A631DE638800097EB84 /* Alamofire.framework */,
 			);
 			name = Frameworks;
@@ -213,7 +211,6 @@
 			);
 			inputPaths = (
 				"$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/AlamofireImage.framework",
 			);
 			outputPaths = (
 			);
