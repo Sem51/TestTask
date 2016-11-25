@@ -25,9 +25,87 @@ class StartViewController: UIViewController {
         super.viewDidLoad()
     
         //load 3 random image
-        model.imageOne = request.getRandomImage()
-        model.imageTwo = request.getRandomImage()
-        model.imageReserv = request.getRandomImage()
+        
+        let backgroundQueue = DispatchQueue(label: "load",
+                                            qos: .background,
+                                            target: nil)
+        
+        backgroundQueue.async() {
+            self.request.getRandomImage(
+                success: { (image) in
+                    let gifImage = UIImage.gifImageWithURL(image.originalImageUrl)
+                    
+                    DispatchQueue.main.async {
+                        self.model.imageOne = image
+                        self.image1 = gifImage
+                    }
+                },
+                failure: { (error) in
+                    print(error)
+                }
+            )
+        }
+        
+        backgroundQueue.async() {
+            self.request.getRandomImage(
+                success: { (image) in
+                    let gifImage = UIImage.gifImageWithURL(image.originalImageUrl)
+                    
+                    DispatchQueue.main.async {
+                        self.model.imageTwo = image
+                        self.image2 = gifImage
+                    }
+            },
+                failure: { (error) in
+                    print(error)
+            }
+            )
+        }
+        
+        backgroundQueue.async() {
+            self.request.getRandomImage(
+                success: { (image) in
+                    let gifImage = UIImage.gifImageWithURL(image.originalImageUrl)
+                    
+                    DispatchQueue.main.async {
+                        self.model.imageReserv = image
+                        self.image3 = gifImage
+                    }
+                    
+//                    DispatchQueue.main.async {
+//                        self.model.imageReserv = image
+//                        self.image3 = UIImage.gifImageWithURL(self.model.imageReserv.originalImageUrl)
+//                    }
+            },
+                failure: { (error) in
+                    print(error)
+            }
+            )
+            
+            
+        }
+        
+        
+//        request.getRandomImage(
+//            success: { (image) in
+//                self.model.imageTwo = image
+//                self.image2 = UIImage.gifImageWithURL(self.model.imageTwo.originalImageUrl)
+//        },
+//            failure: { (error) in
+//                print(error)
+//            }
+//        )
+//        request.getRandomImage(
+//            success: { (image) in
+//                self.model.imageReserv = image
+//                self.image3 = UIImage.gifImageWithURL(self.model.imageReserv.originalImageUrl)
+//        },
+//            failure: { (error) in
+//                print(error)
+//            }
+//        )
+//        model.imageTwo = request.getRandomImage()
+//        model.imageReserv = request.getRandomImage()
         
 //        DispatchQueue.global(attributes: [.qosDefault]).async {
 //            // Background thread
@@ -37,19 +115,19 @@ class StartViewController: UIViewController {
 //        }
         
         //let queue = DispatchQueue(label: "loadImages")
-        let backgroundQueue = DispatchQueue(label: "loadImages",
-                                            qos: .background,
-                                            target: nil)
-        backgroundQueue.async {
-            self.loadImages()
-        }
+//        let backgroundQueue = DispatchQueue(label: "loadImages",
+//                                            qos: .background,
+//                                            target: nil)
+//        backgroundQueue.async {
+//            self.loadImages()
+//        }
     }
 
     func loadImages() {
     
-        image1 = UIImage.gifImageWithURL(model.imageOne.originalImageUrl)
-        image2 = UIImage.gifImageWithURL(model.imageTwo.originalImageUrl)
-        image3 = UIImage.gifImageWithURL(model.imageReserv.originalImageUrl)
+//        image1 = UIImage.gifImageWithURL(model.imageOne.originalImageUrl)
+//        image2 = UIImage.gifImageWithURL(model.imageTwo.originalImageUrl)
+//        image3 = UIImage.gifImageWithURL(model.imageReserv.originalImageUrl)
     }
     
     

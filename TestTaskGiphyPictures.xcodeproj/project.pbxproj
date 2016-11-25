@@ -18,7 +18,7 @@
 		A20F6A6B1DE6AB1C0097EB84 /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20F6A6A1DE6AB1C0097EB84 /* StartViewController.swift */; };
 		A20F6A6D1DE6AB370097EB84 /* ScoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20F6A6C1DE6AB370097EB84 /* ScoreViewController.swift */; };
 		A2232C2A1DE80B5800516510 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A20F6A631DE638800097EB84 /* Alamofire.framework */; };
-		A2232C2C1DE835DC00516510 /* iOSDevCenters+GIF.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2232C2B1DE835DC00516510 /* iOSDevCenters+GIF.swift */; };
+		A2232C2C1DE835DC00516510 /* UIImage+GIF.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2232C2B1DE835DC00516510 /* UIImage+GIF.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,7 +35,7 @@
 		A20F6A681DE6A3E20097EB84 /* GiphyAppModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GiphyAppModel.swift; sourceTree = "<group>"; };
 		A20F6A6A1DE6AB1C0097EB84 /* StartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
 		A20F6A6C1DE6AB370097EB84 /* ScoreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ScoreViewController.swift; path = ../ScoreViewController.swift; sourceTree = "<group>"; };
-		A2232C2B1DE835DC00516510 /* iOSDevCenters+GIF.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "iOSDevCenters+GIF.swift"; sourceTree = "<group>"; };
+		A2232C2B1DE835DC00516510 /* UIImage+GIF.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+GIF.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,8 +70,11 @@
 		A20F6A451DE62E030097EB84 /* TestTaskGiphyPictures */ = {
 			isa = PBXGroup;
 			children = (
+				A20F6A5B1DE62E840097EB84 /* CoreData */,
+				A2232C2D1DE8362C00516510 /* Service */,
+				A2232C2F1DE840EC00516510 /* Extension */,
+				A2232C2E1DE840C100516510 /* Views */,
 				A20F6A5D1DE62EA70097EB84 /* ViewControllers */,
-				A20F6A5C1DE62E9B0097EB84 /* StoryBoards */,
 				A20F6A6E1DE6ABFF0097EB84 /* Model */,
 				A20F6A461DE62E030097EB84 /* AppDelegate.swift */,
 				A2CD77611DE6D6FA00C9F1FE /* SupportingFiles */,
@@ -123,13 +126,34 @@
 			name = Model;
 			sourceTree = "<group>";
 		};
+		A2232C2D1DE8362C00516510 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				A20F6A5E1DE62FE70097EB84 /* RequestService.swift */,
+			);
+			name = Service;
+			sourceTree = "<group>";
+		};
+		A2232C2E1DE840C100516510 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A20F6A5C1DE62E9B0097EB84 /* StoryBoards */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		A2232C2F1DE840EC00516510 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				A2232C2B1DE835DC00516510 /* UIImage+GIF.swift */,
+			);
+			name = Extension;
+			sourceTree = "<group>";
+		};
 		A2CD77611DE6D6FA00C9F1FE /* SupportingFiles */ = {
 			isa = PBXGroup;
 			children = (
-				A2232C2B1DE835DC00516510 /* iOSDevCenters+GIF.swift */,
-				A20F6A5E1DE62FE70097EB84 /* RequestService.swift */,
 				A20F6A551DE62E030097EB84 /* Info.plist */,
-				A20F6A5B1DE62E840097EB84 /* CoreData */,
 			);
 			name = SupportingFiles;
 			sourceTree = "<group>";
@@ -226,7 +250,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A20F6A6D1DE6AB370097EB84 /* ScoreViewController.swift in Sources */,
-				A2232C2C1DE835DC00516510 /* iOSDevCenters+GIF.swift in Sources */,
+				A2232C2C1DE835DC00516510 /* UIImage+GIF.swift in Sources */,
 				A20F6A691DE6A3E20097EB84 /* GiphyAppModel.swift in Sources */,
 				A20F6A611DE634A10097EB84 /* GameViewController.swift in Sources */,
 				A20F6A5F1DE62FE70097EB84 /* RequestService.swift in Sources */,

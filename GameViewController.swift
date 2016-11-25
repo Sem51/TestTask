@@ -81,8 +81,37 @@ class GameViewController: UIViewController {
     
     func pictureRefresh() {
         scoreLabel.text = "\(model.leftScore) - \(model.rigtScore)"
-        model.imageReserv = request.getRandomImage()
-        image3 = UIImage.gifImageWithURL(model.imageReserv.originalImageUrl)
+        
+        let backgroundQueue = DispatchQueue(label: "load",
+                                            qos: .background,
+                                            target: nil)
+        
+        backgroundQueue.async() {
+            self.request.getRandomImage(
+                success: { (image) in
+                    let gifImage = UIImage.gifImageWithURL(image.originalImageUrl)
+                    
+                    DispatchQueue.main.async {
+                        self.model.imageReserv = image
+                        self.image3 = gifImage
+                    }
+            },
+                failure: { (error) in
+                    print(error)
+            }
+            )
+        }
+        
+//        request.getRandomImage(
+//            success: { (image) in
+//                
+//        },
+//            failure: { (error) in
+//                print(error)
+//            }
+//        )
+        
+//        image3 = UIImage.gifImageWithURL(model.imageReserv.originalImageUrl)
     }
     
     @IBAction func cancelButton(_ sender: Any) {

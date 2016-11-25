@@ -9,6 +9,8 @@
 import Foundation
 import UIKit
 import Alamofire
+import UIKit
+
 //import SwiftyJSON  - not working in Swift 3.0.1 ;(
 
 enum RequestError: Error {
@@ -24,7 +26,7 @@ class Request {
     let publicBetaApikey = "dc6zaTOxFJmzC"
     let format = "json"
     
-    func getRandomImage() -> Image {
+    func getRandomImage(success: @escaping (_ image: Image) -> (), failure: @escaping (_ error: String) -> ()) {
         
         let params = ["api_key" : publicBetaApikey, "fmt" : format]
         
@@ -34,19 +36,22 @@ class Request {
                 let json = try! JSONSerialization.jsonObject(with: data, options: []) as? NSDictionary
                 if let jsonDictionary = json {
                     print(jsonDictionary)
-                    self.image = Image(json: jsonDictionary)
+                    if let image = Image(json: jsonDictionary) {
+                        success(image)
+                    }
                 } else {
-                    print("Load Failed")
+                    failure("Load Failed")
+//                    print("Load Failed")
                 }
             }
         }
-        if image != nil {
-            return image
-        } else {
-            print("Create image object error!")
-            return Image(type: .Gif, id: "", originalImageUrl: "http://s3.amazonaws.com/giphygifs/media/Ggjwvmqktuvf2/giphy.gif")
-            
-        }
+//        if image != nil {
+//            return image
+//        } else {
+//            print("Create image object error!")
+//            return Image(type: .Gif, id: "", originalImageUrl: "http://s3.amazonaws.com/giphygifs/media/Ggjwvmqktuvf2/giphy.gif")
+//            
+//        }
         
     }
 }
