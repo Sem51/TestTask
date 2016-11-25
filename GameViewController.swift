@@ -8,7 +8,6 @@
 
 import UIKit
 import AlamofireImage
-import SwiftGif
 
 class GameViewController: UIViewController {
     
@@ -52,7 +51,7 @@ class GameViewController: UIViewController {
         model.leftScore = model.leftScore + 1
         scoreButton.titleLabel?.text = "\(model.leftScore) - \(model.rigtScore)"
         
-        saveToCoreData()
+        //saveToCoreData()
     }
     
     func saveToCoreData() {
@@ -73,17 +72,6 @@ class GameViewController: UIViewController {
         }
     }
     
-//    @IBAction func tapOnPicture(_ sender: UIButton) {
-//        if sender == leftButton {
-//            model.leftScore = model.leftScore + 1
-//            
-//        } else if sender == rightButton {
-//            model.rigtScore = model.rigtScore + 1
-//        }
-//        
-//        scoreButton.titleLabel?.text = "\(model.leftScore) - \(model.rigtScore)"
-//        
-//    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "Score" {
@@ -93,7 +81,7 @@ class GameViewController: UIViewController {
         }
     }
     
-    //MARK: giphyDelegate
-    
-
+    @IBAction func cancelButton(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
 }

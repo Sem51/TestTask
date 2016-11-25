@@ -8,13 +8,16 @@
 
 import UIKit
 import CoreData
+//import AlamofireImage
+//import SwiftGif
 
-class StartViewController: UIViewController, requestDelegate {
+class StartViewController: UIViewController {
+    
     @IBOutlet weak var newGameButton: UIButton!
-
     @IBOutlet weak var continueGameButton: UIButton!
+    
     var model = GiphyAppModel()
-    //var request = Request()
+    var request = Request()
     
     var image1: UIImage!
     var image2: UIImage!
@@ -25,32 +28,29 @@ class StartViewController: UIViewController, requestDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let context = (UIApplication.shared .delegate as! AppDelegate).persistentContainer.viewContext
-        do {
-            scores = try context.fetch(Score.fetchRequest())
-            if scores.count > 0 {
-            model.leftScore = scores[0].leftPictures
-            model.rigtScore = scores[0].rightPictures
-            }
-        } catch {
-            print("Fetching faild")
-        }
         
-        let imageTest = Image(type: .Gif, id: "", originalImageUrl: "http://s3.amazonaws.com/giphygifs/media/Ggjwvmqktuvf2/giphy.gif")
+        //Load from CoreData
+//        let context = (UIApplication.shared .delegate as! AppDelegate).persistentContainer.viewContext
+//        do {
+//            scores = try context.fetch(Score.fetchRequest())
+//            if scores.count > 0 {
+//            model.leftScore = scores[0].leftPictures
+//            model.rigtScore = scores[0].rightPictures
+//            }
+//        } catch {
+//            print("Fetching faild")
+//        }
         
-        model.imageOne = Image(image: imageTest)
-        model.imageTwo = Image(image: imageTest)
-        model.imageReserv = Image(image: imageTest)
+        //load 3 random image
+        model.imageOne = request.getRandomImage()
+        model.imageTwo = request.getRandomImage()
+        model.imageReserv = request.getRandomImage()
         
-
-//        model.imageOne = Image(image: request.getRandomImage())
-//        model.imageTwo = Image(image: request.getRandomImage())
-//        model.imageReserv = Image(image: request.getRandomImage())
-       
         loadImages()
     }
 
     func loadImages() {
+        //add GCD!
         image1 = UIImage.gifImageWithURL(model.imageOne.originalImageUrl)
         image2 = UIImage.gifImageWithURL(model.imageTwo.originalImageUrl)
         image3 = UIImage.gifImageWithURL(model.imageReserv.originalImageUrl)
@@ -75,30 +75,5 @@ class StartViewController: UIViewController, requestDelegate {
             destinationViewController.leftScore = model.leftScore
             destinationViewController.rightScore = model.rigtScore
         }
-    }
-    
-    //MARK: - RequestDelegate
-    func updatePictureInfo(image: Image?) throws {
-        
-        guard image == nil else {
-            throw RequestError.loadFailed
-        }
-        
-        if model.imageOne == nil {
-        model.imageOne = image
-            
-        } else if model.imageTwo == nil{
-            model.imageTwo = image
-        } else if model.imageReserv == nil {
-            model.imageReserv = image
-        }
-    }
-    
-    func failure() {
-        // No connection internet
-        let networkController = UIAlertController(title: "Error", message: "No connection!", preferredStyle: UIAlertControllerStyle.alert)
-        let okButton = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil)
-        networkController.addAction(okButton)
-        self.present(networkController, animated: true, completion: nil)
     }
 }

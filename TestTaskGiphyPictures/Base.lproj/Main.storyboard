@@ -101,7 +101,11 @@
                                 </constraints>
                                 <items>
                                     <navigationItem title="Who is?" id="A33-Kb-yby">
-                                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="pFR-9M-b8d"/>
+                                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="pFR-9M-b8d">
+                                            <connections>
+                                                <action selector="cancelButton:" destination="uEz-ky-WkT" id="I4K-V1-cTQ"/>
+                                            </connections>
+                                        </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
@@ -211,7 +215,7 @@
         <image name="close" width="64" height="64"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="eU7-Vc-B5t"/>
         <segue reference="7Fr-nM-JIg"/>
+        <segue reference="eU7-Vc-B5t"/>
     </inferredMetricsTieBreakers>
 </document>
