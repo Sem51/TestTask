@@ -10,7 +10,7 @@ import UIKit
 import AlamofireImage
 
 class GameViewController: UIViewController {
-
+    
     @IBOutlet weak var leftImage: UIImageView!
     @IBOutlet weak var rightImage: UIImageView!
     
@@ -32,9 +32,6 @@ class GameViewController: UIViewController {
             self.rightImage.image = self.image2
         }
         
-        //leftImage.image = image1
-        //rightImage.image = image2
-        
         scoreLabel.text = "\(model.leftScore) - \(model.rigtScore)"
     }
     
@@ -42,16 +39,6 @@ class GameViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-  
- 
-    
-//    func imageTapped(img: AnyObject)
-//    {
-//        model.leftScore = model.leftScore + 1
-//        scoreLabel.text = "\(model.leftScore) - \(model.rigtScore)"
-//    }
-//
-    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "Score" {
@@ -68,9 +55,9 @@ class GameViewController: UIViewController {
         DispatchQueue.main.async {
             self.leftImage.image = self.image1
         }
-        
         pictureRefresh()
     }
+    
     @IBAction func pressRightPicture(_ sender: Any) {
         model.rigtScore = model.rigtScore + 1
         model.imageTwo = model.imageReserv
@@ -98,20 +85,8 @@ class GameViewController: UIViewController {
             },
                 failure: { (error) in
                     print(error)
-            }
-            )
+            })
         }
-        
-//        request.getRandomImage(
-//            success: { (image) in
-//                
-//        },
-//            failure: { (error) in
-//                print(error)
-//            }
-//        )
-        
-//        image3 = UIImage.gifImageWithURL(model.imageReserv.originalImageUrl)
     }
     
     @IBAction func cancelButton(_ sender: Any) {

@@ -19,10 +19,10 @@ enum RequestError: Error {
 }
 
 class Request {
-
+    
     typealias success = (_ image: Image) -> ()
     typealias failure = (_ error: String) -> ()
-
+    
     var image: Image!
     
     let giphyUrl = "http://api.giphy.com/v1/gifs/random"
@@ -35,10 +35,8 @@ class Request {
         
         request(giphyUrl, method: .get, parameters: params).responseJSON { response in
             if let data = response.data {
-                print(data)
                 let json = try! JSONSerialization.jsonObject(with: data, options: []) as? NSDictionary
                 if let jsonDictionary = json {
-                    print(jsonDictionary)
                     if let image = Image(json: jsonDictionary) {
                         success(image)
                     }
@@ -47,6 +45,5 @@ class Request {
                 }
             }
         }
-        
     }
 }

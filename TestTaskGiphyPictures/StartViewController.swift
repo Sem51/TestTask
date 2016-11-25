@@ -26,9 +26,7 @@ class StartViewController: UIViewController {
     
         //load 3 random image
         
-        let backgroundQueue = DispatchQueue(label: "load",
-                                            qos: .background,
-                                            target: nil)
+        let backgroundQueue = DispatchQueue(label: "load", qos: .background, target: nil)
         
         backgroundQueue.async() {
             self.request.getRandomImage(
@@ -58,8 +56,7 @@ class StartViewController: UIViewController {
             },
                 failure: { (error) in
                     print(error)
-            }
-            )
+            })
         }
         
         backgroundQueue.async() {
@@ -71,65 +68,13 @@ class StartViewController: UIViewController {
                         self.model.imageReserv = image
                         self.image3 = gifImage
                     }
-                    
-//                    DispatchQueue.main.async {
-//                        self.model.imageReserv = image
-//                        self.image3 = UIImage.gifImageWithURL(self.model.imageReserv.originalImageUrl)
-//                    }
             },
                 failure: { (error) in
                     print(error)
-            }
-            )
-            
-            
+            })
         }
-        
-        
-//        request.getRandomImage(
-//            success: { (image) in
-//                self.model.imageTwo = image
-//                self.image2 = UIImage.gifImageWithURL(self.model.imageTwo.originalImageUrl)
-//        },
-//            failure: { (error) in
-//                print(error)
-//            }
-//        )
-//        request.getRandomImage(
-//            success: { (image) in
-//                self.model.imageReserv = image
-//                self.image3 = UIImage.gifImageWithURL(self.model.imageReserv.originalImageUrl)
-//        },
-//            failure: { (error) in
-//                print(error)
-//            }
-//        )
-//        model.imageTwo = request.getRandomImage()
-//        model.imageReserv = request.getRandomImage()
-        
-//        DispatchQueue.global(attributes: [.qosDefault]).async {
-//            // Background thread
-//            DispatchQueue.main.async(execute: {
-//                // UI Updates
-//            })
-//        }
-        
-        //let queue = DispatchQueue(label: "loadImages")
-//        let backgroundQueue = DispatchQueue(label: "loadImages",
-//                                            qos: .background,
-//                                            target: nil)
-//        backgroundQueue.async {
-//            self.loadImages()
-//        }
-    }
 
-    func loadImages() {
-    
-//        image1 = UIImage.gifImageWithURL(model.imageOne.originalImageUrl)
-//        image2 = UIImage.gifImageWithURL(model.imageTwo.originalImageUrl)
-//        image3 = UIImage.gifImageWithURL(model.imageReserv.originalImageUrl)
     }
-    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "StartGame" || segue.identifier == "ContinueGame" {
