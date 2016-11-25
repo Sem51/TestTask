@@ -36,7 +36,7 @@ class StartViewController: UIViewController {
 //            })
 //        }
         
-        let queue = DispatchQueue(label: "loadImages") 
+        //let queue = DispatchQueue(label: "loadImages")
         let backgroundQueue = DispatchQueue(label: "loadImages",
                                             qos: .background,
                                             target: nil)
