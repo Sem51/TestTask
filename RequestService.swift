@@ -20,13 +20,16 @@ enum RequestError: Error {
 
 class Request {
 
+    typealias success = (_ image: Image) -> ()
+    typealias failure = (_ error: String) -> ()
+
     var image: Image!
     
     let giphyUrl = "http://api.giphy.com/v1/gifs/random"
     let publicBetaApikey = "dc6zaTOxFJmzC"
     let format = "json"
     
-    func getRandomImage(success: @escaping (_ image: Image) -> (), failure: @escaping (_ error: String) -> ()) {
+    func getRandomImage(success: @escaping success, failure: @escaping failure) {
         
         let params = ["api_key" : publicBetaApikey, "fmt" : format]
         
@@ -41,17 +44,9 @@ class Request {
                     }
                 } else {
                     failure("Load Failed")
-//                    print("Load Failed")
                 }
             }
         }
-//        if image != nil {
-//            return image
-//        } else {
-//            print("Create image object error!")
-//            return Image(type: .Gif, id: "", originalImageUrl: "http://s3.amazonaws.com/giphygifs/media/Ggjwvmqktuvf2/giphy.gif")
-//            
-//        }
         
     }
 }
