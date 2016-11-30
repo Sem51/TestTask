@@ -10,7 +10,6 @@ import Foundation
 import UIKit
 import Alamofire
 import UIKit
-
 //import SwiftyJSON  - not working in Swift 3.0.1 ;(
 
 enum RequestError: Error {
