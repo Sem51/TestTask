@@ -18,8 +18,23 @@
 		A20F6A6B1DE6AB1C0097EB84 /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20F6A6A1DE6AB1C0097EB84 /* StartViewController.swift */; };
 		A20F6A6D1DE6AB370097EB84 /* ScoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20F6A6C1DE6AB370097EB84 /* ScoreViewController.swift */; };
 		A2232C2C1DE835DC00516510 /* UIImage+GIF.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2232C2B1DE835DC00516510 /* UIImage+GIF.swift */; };
-		A23655C01DEEFBBC009C1FB6 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A23655BF1DEEFBBC009C1FB6 /* Alamofire.framework */; };
+		A27E35621DF050D3003338E2 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A27E35611DF050D3003338E2 /* Alamofire.framework */; };
+		A27E35631DF050D3003338E2 /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A27E35611DF050D3003338E2 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		A27E35601DF050B2003338E2 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				A27E35631DF050D3003338E2 /* Alamofire.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		A20F6A431DE62E030097EB84 /* TestTaskGiphyPictures.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestTaskGiphyPictures.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -35,7 +50,7 @@
 		A20F6A6A1DE6AB1C0097EB84 /* StartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
 		A20F6A6C1DE6AB370097EB84 /* ScoreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ScoreViewController.swift; path = ../ScoreViewController.swift; sourceTree = "<group>"; };
 		A2232C2B1DE835DC00516510 /* UIImage+GIF.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+GIF.swift"; sourceTree = "<group>"; };
-		A23655BF1DEEFBBC009C1FB6 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Alamofire.framework; sourceTree = "<group>"; };
+		A27E35611DF050D3003338E2 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Alamofire.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,7 +58,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A23655C01DEEFBBC009C1FB6 /* Alamofire.framework in Frameworks */,
+				A27E35621DF050D3003338E2 /* Alamofire.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -113,7 +128,7 @@
 		A20F6A621DE6387F0097EB84 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				A23655BF1DEEFBBC009C1FB6 /* Alamofire.framework */,
+				A27E35611DF050D3003338E2 /* Alamofire.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -168,6 +183,7 @@
 				A20F6A3F1DE62E030097EB84 /* Sources */,
 				A20F6A401DE62E030097EB84 /* Frameworks */,
 				A20F6A411DE62E030097EB84 /* Resources */,
+				A27E35601DF050B2003338E2 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
